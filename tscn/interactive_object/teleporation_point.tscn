@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dg7cxogxewi2h"]
+
+[ext_resource type="Script" uid="uid://cku4nylmhiubf" path="res://script/interactive_object/teleporation_point.gd" id="1_00n4a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rn7qb"]
+size = Vector2(108, 145)
+
+[node name="TeleporationPoint" type="Area2D" unique_id=1134737637]
+collision_layer = 4
+script = ExtResource("1_00n4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1076395038]
+shape = SubResource("RectangleShape2D_rn7qb")

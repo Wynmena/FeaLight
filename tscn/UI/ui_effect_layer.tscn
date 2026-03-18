@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://d0p64hr25e4hu"]
+
+[ext_resource type="Script" uid="uid://bbney65vj4v7b" path="res://script/UI/ui_effect_layer.gd" id="1_oglkk"]
+
+[sub_resource type="Animation" id="Animation_3qacm"]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_cx2pp"]
+resource_name = "black_screen"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j0baw"]
+_data = {
+&"RESET": SubResource("Animation_3qacm"),
+&"black_screen": SubResource("Animation_cx2pp")
+}
+
+[node name="UIEffectLayer" type="CanvasLayer" unique_id=575939604]
+script = ExtResource("1_oglkk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=964261062]
+root_node = NodePath("../ColorRect")
+libraries/ = SubResource("AnimationLibrary_j0baw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1420164341]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

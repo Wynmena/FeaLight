@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" format=3 uid="uid://dokgbjg34xvaq"]
+
+[ext_resource type="Texture2D" uid="uid://vlqpqqxgvxir" path="res://art/tile_map/tep_map.png" id="1_w7w4u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k4if3"]
+texture = ExtResource("1_w7w4u")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 8, -8, -8, -8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+1:1/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_k4if3")

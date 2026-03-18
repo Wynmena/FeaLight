@@ -1,0 +1,14 @@
+extends Node
+
+var ResourceMgr: ResourceManager = \
+	preload("res://script/Manager/resource_manager.gd").new():
+	set(value):
+		pass
+var GameMgr: GameManager = \
+	preload("res://script/Manager/game_manager.gd").new():
+	set(value):
+		pass
+
+func _ready() -> void:
+	add_child(ResourceMgr)
+	add_child(GameMgr)

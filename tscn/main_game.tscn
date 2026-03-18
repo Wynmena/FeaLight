@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dmaxp4ortk1j0"]
+
+[ext_resource type="Script" uid="uid://c4hr62d4idm8i" path="res://script/main_game.gd" id="1_eq12k"]
+[ext_resource type="PackedScene" uid="uid://c8thv8s26xvia" path="res://tscn/character/tmp_character.tscn" id="1_m3dfo"]
+[ext_resource type="PackedScene" uid="uid://c5etnua8l4xaf" path="res://tscn/interactive_object/my_camera.tscn" id="2_a3k1g"]
+[ext_resource type="PackedScene" uid="uid://d0p64hr25e4hu" path="res://tscn/UI/ui_effect_layer.tscn" id="4_u4t67"]
+
+[node name="MainGame" type="Node2D" unique_id=238838565 node_paths=PackedStringArray("player")]
+script = ExtResource("1_eq12k")
+player = NodePath("CharacterBody2D")
+test_map_name = "map_forest_1"
+
+[node name="MapRoot" type="Node2D" parent="." unique_id=676929129]
+
+[node name="CharacterBody2D" parent="." unique_id=119792308 instance=ExtResource("1_m3dfo")]
+position = Vector2(265, 294)
+
+[node name="MyCamera" parent="." unique_id=169203709 node_paths=PackedStringArray("target") instance=ExtResource("2_a3k1g")]
+position = Vector2(265, 294)
+target = NodePath("../CharacterBody2D")
+
+[node name="TeleTimer" type="Timer" parent="." unique_id=1832407631]
+wait_time = 3.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1533410874]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=947809219]
+offset_left = 25.0
+offset_top = 31.0
+offset_right = 65.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0.96125776, 0, 0.25708705, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Map：XXX"
+
+[node name="CanTeleLabel" type="Label" parent="CanvasLayer" unique_id=1069367748]
+offset_left = 26.0
+offset_top = 70.0
+offset_right = 106.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(0.96125776, 0, 0.25708705, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "XXX"
+
+[node name="UIEffectLayer" parent="." unique_id=575939604 instance=ExtResource("4_u4t67")]
+layer = 100
