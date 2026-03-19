@@ -17,8 +17,24 @@ signal _anim_back_signal
 var current_map: Map
 var _can_tele: bool = true
 
+var sys_menu_scene = preload("res://tscn/UI/pages/sys_menu.tscn")
+var sys_menu_instance: SysMenu
+
 func _ready() -> void:
 	get_tree().root.ready.connect(_on_tree_ready)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_ESCAPE:
+			toggle_menu()
+
+func toggle_menu() -> void:
+	if sys_menu_instance == null:
+		sys_menu_instance = sys_menu_scene.instantiate()
+		$CanvasLayer.add_child(sys_menu_instance)
+		sys_menu_instance.open()
+	else:
+		sys_menu_instance.toggle()
 
 func _on_tree_ready():
 	tele_timer.timeout.connect(func():

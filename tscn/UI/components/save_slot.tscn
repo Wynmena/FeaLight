@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dj7eyd8plbe7g"]
+
+[ext_resource type="Script" uid="uid://dfavsafw47yed" path="res://script/UI/components/save_slot.gd" id="1_slot_gd"]
+
+[node name="SaveSlot" type="PanelContainer" unique_id=2024324977]
+custom_minimum_size = Vector2(0, 80)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+script = ExtResource("1_slot_gd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1532164136]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="IconContainer" type="CenterContainer" parent="HBoxContainer" unique_id=1189848988]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/IconContainer" unique_id=1061219644]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InfoVBox" type="VBoxContainer" parent="HBoxContainer" unique_id=1703972921]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/InfoVBox" unique_id=880807278]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save Name"
+clip_text = true
+
+[node name="HBoxLocTime" type="HBoxContainer" parent="HBoxContainer/InfoVBox" unique_id=768963174]
+layout_mode = 2
+alignment = 1
+
+[node name="LocationLabel" type="Label" parent="HBoxContainer/InfoVBox/HBoxLocTime" unique_id=1809160436]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Location: Forest"
+clip_text = true
+
+[node name="TimeLabel" type="Label" parent="HBoxContainer/InfoVBox/HBoxLocTime" unique_id=859549341]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "2026-03-19"
+horizontal_alignment = 2
+clip_text = true
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="HBoxContainer" unique_id=1058304947]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="SaveButton" type="Button" parent="HBoxContainer/ButtonsVBox" unique_id=1138921565]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save"
+icon_alignment = 1
+
+[node name="LoadButton" type="Button" parent="HBoxContainer/ButtonsVBox" unique_id=1227783526]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load"
+icon_alignment = 1

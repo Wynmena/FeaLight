@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://danidr5trqvp4"]
+
+[ext_resource type="Script" uid="uid://dr4r4vr3aur14" path="res://script/UI/pages/inventory_page.gd" id="1_invScript"]
+
+[node name="InventoryPage" type="Control" unique_id=1446490506]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_invScript")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=867687557]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.1, 0.8)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=270544241]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="DetailsPanel" type="PanelContainer" parent="VBoxContainer" unique_id=309638500]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/DetailsPanel" unique_id=899020329]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="IconContainer" type="CenterContainer" parent="VBoxContainer/DetailsPanel/HBoxContainer" unique_id=400866871]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="DetailIcon" type="TextureRect" parent="VBoxContainer/DetailsPanel/HBoxContainer/IconContainer" unique_id=751150562]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InfoVBox" type="VBoxContainer" parent="VBoxContainer/DetailsPanel/HBoxContainer" unique_id=1392741745]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="DetailName" type="Label" parent="VBoxContainer/DetailsPanel/HBoxContainer/InfoVBox" unique_id=648831619]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Item Name"
+
+[node name="DetailDesc" type="Label" parent="VBoxContainer/DetailsPanel/HBoxContainer/InfoVBox" unique_id=721633978]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Item Description goes here..."
+autowrap_mode = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1742939181]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemGrid" type="GridContainer" parent="VBoxContainer/ScrollContainer" unique_id=33518311]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 8

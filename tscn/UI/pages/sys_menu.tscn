@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b8q6y3x2q501"]
+
+[ext_resource type="Script" uid="uid://cto5ngsfhwmaw" path="res://script/UI/pages/sys_menu.gd" id="1_page"]
+
+[node name="SysMenu" type="Control" unique_id=842799745]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_page")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=502350897]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1323051590]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TabContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1125448551]
+custom_minimum_size = Vector2(200, 0)
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="OverViewTab" type="Button" parent="HBoxContainer/TabContainer" unique_id=2052409889]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "回忆"
+
+[node name="InventoryTab" type="Button" parent="HBoxContainer/TabContainer" unique_id=2039792857]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "背包
+"
+
+[node name="SavesTab" type="Button" parent="HBoxContainer/TabContainer" unique_id=854477225]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "存档"
+
+[node name="SettingTab" type="Button" parent="HBoxContainer/TabContainer" unique_id=1952717593]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "设置"
+
+[node name="ContentContainer" type="PanelContainer" parent="HBoxContainer" unique_id=1631680341]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ContentLabel" type="Label" parent="HBoxContainer/ContentContainer" unique_id=207483585]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Select a tab..."
+horizontal_alignment = 1
+vertical_alignment = 1

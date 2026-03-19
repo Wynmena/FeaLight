@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ddtih67qh3uow"]
 
 [ext_resource type="Script" uid="uid://dkpfdg5i0khys" path="res://script/interactive_object/notice_board.gd" id="1_f0nau"]
-[ext_resource type="Texture2D" uid="uid://ce6pmqncnhur8" path="res://art/object/notice_board.png" id="2_ssfrf"]
+[ext_resource type="Texture2D" uid="uid://ce6pmqncnhur8" path="res://art/img/object/notice_board.png" id="2_ssfrf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jhxp2"]
 radius = 13.0
