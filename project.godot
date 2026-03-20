@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Manager="*uid://cexva3fy4miuo"
 PathUtil="*uid://7uu0a6d1q3k8"
+Manager="*uid://cexva3fy4miuo"
 
 [display]
 
