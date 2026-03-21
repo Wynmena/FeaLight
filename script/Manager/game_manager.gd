@@ -1,10 +1,16 @@
-class_name GameManager extends Node
+# 状态管理器
 
-var main_game: MainGame
+extends Node
 
-func change_map(map_name: String, tele_id: int = 0) -> void:
-	if main_game == null:
-		main_game = get_tree().root.find_child("MainGame")
-		print(main_game)
-	main_game.change_map(map_name, tele_id)
+var bug_manager = preload("res://script/Manager/bug_manager.gd").new()
+
+
+func _ready() -> void:
+	add_child(bug_manager)
+
+
+func init_game() -> void:
+	bug_manager.add_item_from_id(1, 1)
+	bug_manager.add_item_from_id(2, 1)
+	bug_manager.add_item_from_id(3, 1)
 	

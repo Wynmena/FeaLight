@@ -1,4 +1,4 @@
-class_name DataManager extends Node
+extends Node
 
 
 var item: ItemContainer

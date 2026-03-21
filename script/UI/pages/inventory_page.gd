@@ -17,7 +17,7 @@ const MIN_ROWS = 5 # 至少显示几行
 func _ready() -> void: # 初始化界面，加载数据并监听信号
 	_apply_theme()
 	#load_items_data()
-	items_data = Manager.BugMgr.get_all_item()
+	items_data = GameManager.bug_manager.get_all_item()
 	
 	# 监听大小变化以重新计算Item大小
 	grid_container.columns = COLS

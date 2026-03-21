@@ -1,4 +1,4 @@
-class_name BugManager extends Node
+extends Node
 
 
 var _items: Dictionary[Item, int]
@@ -35,7 +35,7 @@ func add_item_from_id(id: int, count: int) -> void:
 	if try_get_item_from_id(id, item):
 		_items[item] += count
 	else:
-		var data: ItemData = Manager.DataMgr.item.get_item_data_from_id(id)
+		var data: ItemData = DataManager.item.get_item_data_from_id(id)
 		if data == null:
 			push_error("try add unexited item_data")
 			return
@@ -48,7 +48,7 @@ func add_item_from_name(name: String, count: int) -> void:
 	if try_get_item_from_name(name, item):
 		_items[item] += count
 	else:
-		var data: ItemData = Manager.DataMgr.item.get_item_data_from_name(name)
+		var data: ItemData = DataManager.get_item_data_from_name(name)
 		if data == null:
 			push_error("try add unexited item_data")
 			return

@@ -19,7 +19,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 PathUtil="*uid://7uu0a6d1q3k8"
-Manager="*uid://cexva3fy4miuo"
+ResourceManager="*res://script/Manager/resource_manager.gd"
+GameManager="*res://script/Manager/game_manager.gd"
+SceneManager="*res://script/Manager/scene_manager.gd"
+DataManager="*res://script/Manager/data_manager.gd"
+InputManager="*res://script/Manager/input_manager.gd"
 
 [display]
 

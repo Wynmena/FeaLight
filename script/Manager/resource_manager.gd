@@ -1,4 +1,6 @@
-class_name ResourceManager extends Node
+# 资源加载器
+
+extends Node
 
 
 func load_map(file_name: String) -> PackedScene:
