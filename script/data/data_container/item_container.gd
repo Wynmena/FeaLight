@@ -4,11 +4,11 @@ func _init() -> void:
 	super._init("ItemData")
 
 
-func get_item_from_id(id: int) -> ItemData:
+func get_item_data_from_id(id: int) -> ItemData:
 	return _get_data_from_attribute("id", id)
 
 
-func get_item_from_name(name: String) -> ItemData:
+func get_item_data_from_name(name: String) -> ItemData:
 	return _get_data_from_attribute("name", name)
 
 

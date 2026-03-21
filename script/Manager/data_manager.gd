@@ -6,7 +6,6 @@ var item: ItemContainer
 func _init() -> void:
 	item = ItemContainer.new()
 	item.initlize_datas(_load_json("items"))
-	print(item.get_item_from_id(1).name)
 
 func _load_json(json_name: String) -> Array:
 	var json_path: String = PathUtil.json_data_path + json_name + ".json"

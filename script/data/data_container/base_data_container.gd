@@ -8,7 +8,6 @@ func _init(pascal_data_name: String) -> void:
 	data_class_name = pascal_data_name
 	var snake_data_name: String = PathUtil.pascal_to_snake(pascal_data_name)
 	var file_path: String = PathUtil.data_class_path + snake_data_name + ".gd"
-	print("File path: " + file_path)
 	var script = load(file_path)
 	datas = Array([], TYPE_OBJECT, "Resource", script)
 
@@ -34,7 +33,7 @@ func initlize_datas(whats: Array) -> void:
 func _get_data_from_attribute(var_name: String, what: Variant) -> Variant:
 	for data in datas:
 		var attr: Variant = data.get(var_name)
-		if attr == null : continue
+		if attr == null or attr != what : continue
 		return data
 	return null
 

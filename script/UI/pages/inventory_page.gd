@@ -16,7 +16,8 @@ const MIN_ROWS = 5 # 至少显示几行
 
 func _ready() -> void: # 初始化界面，加载数据并监听信号
 	_apply_theme()
-	load_items_data()
+	#load_items_data()
+	items_data = Manager.BugMgr.get_all_item()
 	
 	# 监听大小变化以重新计算Item大小
 	grid_container.columns = COLS
@@ -129,18 +130,18 @@ func populate_grid() -> void: # 根据加载的数据和布局要求生成物品
 			var empty_slot = _create_empty_slot(item_width)
 			grid_container.add_child(empty_slot)
 
-func _create_item_button(item: Dictionary, size: float) -> Button: # 创建单个物品按钮
+func _create_item_button(item: Item, size: float) -> Button: # 创建单个物品按钮
 	var btn = Button.new()
 	btn.custom_minimum_size = Vector2(size, size)
 	btn.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	btn.expand_icon = true
 	
-	if item.has("icon"):
-		var texture = load(item["icon"])
+	if not item.icon_path.is_empty():
+		var texture = load(item.icon_path)
 		if texture:
 			btn.icon = texture
 		else:
-			btn.text = item["name"].left(1)
+			btn.text = item.name.left(1)
 	
 	GameTheme.apply_button_theme(btn)
 	btn.pressed.connect(func(): update_detail_view(item))
@@ -157,12 +158,12 @@ func _create_empty_slot(size: float) -> Panel: # 创建空槽位占位符
 	p.add_theme_stylebox_override("panel", style)
 	return p
 
-func update_detail_view(item: Dictionary) -> void: # 更新右侧物品详情面板显示
-	detail_name.text = item.get("name", "Unknown Item")
-	detail_desc.text = item.get("desc", "No description available.")
+func update_detail_view(item: Item) -> void: # 更新右侧物品详情面板显示
+	detail_name.text = item.name
+	detail_desc.text = item.description
 	
-	if item.has("icon"):
-		var texture = load(item["icon"])
+	if not item.icon_path.is_empty():
+		var texture = load(item.icon_path)
 		if texture:
 			detail_icon.texture = texture
 		else:
