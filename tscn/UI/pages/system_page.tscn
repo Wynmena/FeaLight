@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://oywofkkaimlm"]
+
+[ext_resource type="Script" uid="uid://dqniq5lmpwypy" path="res://script/UI/pages/system_page.gd" id="1_sysScript"]
+
+[node name="SystemPage" type="Control" unique_id=519597434]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sysScript")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1882673196]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.1, 0.8)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1600167647]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsList" type="VBoxContainer" parent="ScrollContainer" unique_id=103139396]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 40
+
+[node name="AudioSection" type="PanelContainer" parent="ScrollContainer/SettingsList" unique_id=1024470508]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AudioVBox" type="VBoxContainer" parent="ScrollContainer/SettingsList/AudioSection" unique_id=884560533]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="AudioTitle" type="Label" parent="ScrollContainer/SettingsList/AudioSection/AudioVBox" unique_id=168214595]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "声音"
+
+[node name="BGMHbox" type="HBoxContainer" parent="ScrollContainer/SettingsList/AudioSection/AudioVBox" unique_id=1705679366]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BGMLabel" type="Label" parent="ScrollContainer/SettingsList/AudioSection/AudioVBox/BGMHbox" unique_id=511415315]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BGM"
+
+[node name="BGMSlider" type="HSlider" parent="ScrollContainer/SettingsList/AudioSection/AudioVBox/BGMHbox" unique_id=932271114]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="SFXHbox" type="HBoxContainer" parent="ScrollContainer/SettingsList/AudioSection/AudioVBox" unique_id=1686758465]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SFXLabel" type="Label" parent="ScrollContainer/SettingsList/AudioSection/AudioVBox/SFXHbox" unique_id=435932669]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "音效 "
+
+[node name="SFXSlider" type="HSlider" parent="ScrollContainer/SettingsList/AudioSection/AudioVBox/SFXHbox" unique_id=1069664160]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="AmbHbox" type="HBoxContainer" parent="ScrollContainer/SettingsList/AudioSection/AudioVBox" unique_id=1903536985]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="AmbLabel" type="Label" parent="ScrollContainer/SettingsList/AudioSection/AudioVBox/AmbHbox" unique_id=479836240]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "环境音"
+
+[node name="AmbSlider" type="HSlider" parent="ScrollContainer/SettingsList/AudioSection/AudioVBox/AmbHbox" unique_id=1503811287]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="GraphicsSection" type="PanelContainer" parent="ScrollContainer/SettingsList" unique_id=1907319507]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GraphicsVBox" type="VBoxContainer" parent="ScrollContainer/SettingsList/GraphicsSection" unique_id=1310509645]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="GraphicsTitle" type="Label" parent="ScrollContainer/SettingsList/GraphicsSection/GraphicsVBox" unique_id=119624579]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "图像"
+
+[node name="BrightnessHbox" type="HBoxContainer" parent="ScrollContainer/SettingsList/GraphicsSection/GraphicsVBox" unique_id=1341347708]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BrightnessLabel" type="Label" parent="ScrollContainer/SettingsList/GraphicsSection/GraphicsVBox/BrightnessHbox" unique_id=164918325]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "亮度"
+
+[node name="BrightnessSlider" type="HSlider" parent="ScrollContainer/SettingsList/GraphicsSection/GraphicsVBox/BrightnessHbox" unique_id=1625628318]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="FPSHbox" type="HBoxContainer" parent="ScrollContainer/SettingsList/GraphicsSection/GraphicsVBox" unique_id=1047704819]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="FPSLabel" type="Label" parent="ScrollContainer/SettingsList/GraphicsSection/GraphicsVBox/FPSHbox" unique_id=1611204107]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "帧率"
+
+[node name="FPSOptionBtn" type="OptionButton" parent="ScrollContainer/SettingsList/GraphicsSection/GraphicsVBox/FPSHbox" unique_id=1544052307]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ControlsSection" type="PanelContainer" parent="ScrollContainer/SettingsList" unique_id=1991081614]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ControlsVBox" type="VBoxContainer" parent="ScrollContainer/SettingsList/ControlsSection" unique_id=1329068649]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ControlsTitle" type="Label" parent="ScrollContainer/SettingsList/ControlsSection/ControlsVBox" unique_id=1745028137]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "键位"
+
+[node name="ControlsBody" type="Label" parent="ScrollContainer/SettingsList/ControlsSection/ControlsVBox" unique_id=1208403066]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Coming Soon..."

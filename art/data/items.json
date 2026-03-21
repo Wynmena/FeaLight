@@ -1,0 +1,20 @@
+[
+  {
+	"id": 1,
+	"name": "测试物品1",
+	"desc": "测试文本测试文本测试文本测试文本测试文本测试文本",
+	"icon": "res://art/img/items/test1.png"
+  },
+  {
+	"id": 2,
+	"name": "测试物品2",
+	"desc": "测试文本测试文本测试文本测试文本测试文本测试文本",
+	"icon": "res://art/img/items/test2.png"
+  },
+  {
+	"id": 3,
+	"name": "测试物品3",
+	"desc": "测试文本测试文本测试文本测试文本测试文本测试文本",
+	"icon": "res://art/img/items/test3.png"
+  }
+]
