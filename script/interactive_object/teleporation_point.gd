@@ -14,5 +14,5 @@ func _player_enter_reaction() -> void:
 	if destination_name.is_empty():
 		push_warning(self.name + " no destination")
 		return
-	SceneManager.change_map(destination_name, des_tele_id)
+	ScreenManager.change_map(destination_name, des_tele_id)
 	

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dmaxp4ortk1j0"]
 
-[ext_resource type="Script" uid="uid://c4hr62d4idm8i" path="res://script/main_game.gd" id="1_eq12k"]
+[ext_resource type="Script" uid="uid://c4hr62d4idm8i" path="res://script/game_world.gd" id="1_eq12k"]
 [ext_resource type="PackedScene" uid="uid://c8thv8s26xvia" path="res://tscn/character/tmp_character.tscn" id="1_m3dfo"]
 [ext_resource type="PackedScene" uid="uid://c5etnua8l4xaf" path="res://tscn/interactive_object/my_camera.tscn" id="2_a3k1g"]
 [ext_resource type="PackedScene" uid="uid://d0p64hr25e4hu" path="res://tscn/UI/ui_effect_layer.tscn" id="4_u4t67"]
 
-[node name="MainGame" type="Node2D" unique_id=238838565 node_paths=PackedStringArray("player")]
+[node name="GameWorld" type="Node2D" unique_id=238838565 node_paths=PackedStringArray("player")]
 script = ExtResource("1_eq12k")
 player = NodePath("CharacterBody2D")
 test_map_name = "map_forest_1"

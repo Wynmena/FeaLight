@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="菲林游戏"
-run/main_scene="uid://dmaxp4ortk1j0"
+run/main_scene="uid://dbioq82lgjrdr"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/stretch_mode=0
 config/icon="res://icon.svg"
@@ -24,6 +24,7 @@ GameManager="*res://script/Manager/game_manager.gd"
 SceneManager="*res://script/Manager/scene_manager.gd"
 DataManager="*res://script/Manager/data_manager.gd"
 InputManager="*res://script/Manager/input_manager.gd"
+ScreenManager="*res://script/Manager/screen_manager.gd"
 
 [display]
 

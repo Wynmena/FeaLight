@@ -15,6 +15,15 @@ var _can_tele: bool = true
 
 var sys_menu_scene = preload("res://tscn/UI/pages/sys_menu.tscn")
 var sys_menu_instance: SysMenu
+# 全局菜单层容器
+var global_menu_layer: CanvasLayer
+
+
+func set_global_menu_layer(layer: CanvasLayer) -> void:
+	global_menu_layer = layer
+	# 确保层级高于特效层(100)
+	if global_menu_layer.layer <= 100:
+		global_menu_layer.layer = 101
 
 
 func init(p_map_root: Node2D, p_player: CharacterBody2D, p_ui_effect_layer: UIEffectLayer, p_tele_timer: Timer) -> void:
@@ -27,15 +36,13 @@ func init(p_map_root: Node2D, p_player: CharacterBody2D, p_ui_effect_layer: UIEf
 
 
 func toggle_menu() -> void:
+	if global_menu_layer == null:
+		push_error("Global Menu Layer not set!")
+		return
+
 	if sys_menu_instance == null:
 		sys_menu_instance = sys_menu_scene.instantiate()
-		var menu_layer: CanvasLayer = CanvasLayer.new()
-		menu_layer.layer = 101 # 比黑屏动效(100)高一点，保证一定要可见不被遮挡（如果需要）
-		# 或者如果想要黑屏遮住菜单，就设小一点
-		
-		get_tree().root.add_child(menu_layer)
-		menu_layer.add_child(sys_menu_instance)
-		
+		global_menu_layer.add_child(sys_menu_instance)
 		sys_menu_instance.open()
 	else:
 		sys_menu_instance.toggle()

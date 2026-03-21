@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dbioq82lgjrdr"]
+
+[ext_resource type="Script" path="res://script/main.gd" id="1_main"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_main")
+
+[node name="CurrentSceneContainer" type="Node" parent="."]
+unique_id_in_owner = true

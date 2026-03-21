@@ -1,4 +1,4 @@
-class_name MainGame extends Node2D
+class_name GameWorld extends Node2D
 
 
 signal _anim_back_signal
@@ -17,14 +17,9 @@ signal _anim_back_signal
 
 func _ready() -> void:
 	# 初始化场景管理器
-	SceneManager.init(map_root, player, ui_effect_layer, tele_timer)
+	ScreenManager.init(map_root, player, ui_effect_layer, tele_timer)
 	
-	# 等待树准备就绪
-	get_tree().root.ready.connect(_on_tree_ready)
-
-
-func _on_tree_ready():
 	# 初始化游戏状态
-	SceneManager.change_map_without_black_screen(test_map_name)
+	ScreenManager.change_map_without_black_screen(test_map_name)
 
 	GameManager.init_game()
