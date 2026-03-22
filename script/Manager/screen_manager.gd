@@ -2,7 +2,6 @@
 
 extends Node
 
-
 signal _anim_back_signal
 
 var map_root: Node2D
@@ -13,17 +12,31 @@ var tele_timer: Timer
 var current_map: Map
 var _can_tele: bool = true
 
-var sys_menu_scene = preload("res://tscn/UI/pages/sys_menu.tscn")
+# 预加载的场景
+var sys_menu_scene = preload("res://tscn/UI/sys_menu.tscn")
+var main_menu_scene = preload("res://tscn/UI/main_menu.tscn")
+var game_world_scene = preload("res://tscn/game_world.tscn")
+
+
 var sys_menu_instance: SysMenu
-# 全局菜单层容器
+var main_menu_instance: Control
+var game_world_instance: GameWorld
+
 var global_menu_layer: CanvasLayer
+var cur_container_node: Node
 
 
-func set_global_menu_layer(layer: CanvasLayer) -> void:
-	global_menu_layer = layer
-	# 确保层级高于特效层(100)
-	if global_menu_layer.layer <= 100:
-		global_menu_layer.layer = 101
+func init_ui(sys_menu_node: Node, current_container: Node) -> void:
+	# 初始化，仅在程序启动时调用
+
+	# 设置全局菜单层引用，供后续使用
+	global_menu_layer = sys_menu_node
+	cur_container_node = current_container
+	
+	# 实例化并挂载主菜单
+	if main_menu_scene:
+		main_menu_instance = main_menu_scene.instantiate()
+		global_menu_layer.add_child(main_menu_instance)
 
 
 func init(p_map_root: Node2D, p_player: CharacterBody2D, p_ui_effect_layer: UIEffectLayer, p_tele_timer: Timer) -> void:
@@ -34,6 +47,22 @@ func init(p_map_root: Node2D, p_player: CharacterBody2D, p_ui_effect_layer: UIEf
 	
 	tele_timer.timeout.connect(func():_can_tele = true);
 
+func _on_start_game() -> void:
+
+	if game_world_scene:
+		game_world_instance = game_world_scene.instantiate()
+		cur_container_node.add_child(game_world_instance)
+	
+	if main_menu_instance:
+		main_menu_instance.queue_free()
+		main_menu_instance = null
+
+	if sys_menu_scene:
+		sys_menu_instance = sys_menu_scene.instantiate()
+		global_menu_layer.add_child(sys_menu_instance)
+
+func _on_load_game() -> void:
+	pass
 
 func toggle_menu() -> void:
 	if global_menu_layer == null:

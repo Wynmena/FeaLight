@@ -2,6 +2,9 @@
 
 extends Node
 
+# 开发模式开关
+var is_develop: bool = true
+
 var bug_manager = preload("res://script/Manager/bug_manager.gd").new()
 
 
