@@ -16,8 +16,7 @@ const MIN_ROWS = 5 # 至少显示几行
 
 func _ready() -> void: # 初始化界面，加载数据并监听信号
 	_apply_theme()
-	#load_items_data()
-	items_data = GameManager.bug_manager.get_all_item()
+	items_data = _get_current_item()
 	
 	# 监听大小变化以重新计算Item大小
 	grid_container.columns = COLS
@@ -83,24 +82,6 @@ func _apply_theme() -> void: # 应用全局主题样式到 UI 元素
 				parent.add_child(p)
 				parent.move_child(p, 0)
 
-func load_items_data() -> void: # 从 JSON 文件加载物品数据
-	if not FileAccess.file_exists(ITEM_DATA_PATH):
-		push_error("Item data file not found: " + ITEM_DATA_PATH)
-		return
-		
-	var file = FileAccess.open(ITEM_DATA_PATH, FileAccess.READ)
-	var content = file.get_as_text()
-	var json = JSON.new()
-	var error = json.parse(content)
-	
-	if error == OK:
-		items_data = json.data
-		if typeof(items_data) != TYPE_ARRAY:
-			push_error("Unexpected data format in items.json")
-			items_data = []
-	else:
-		push_error("JSON Parse Error: ", json.get_error_message(), " in ", content, " at line ", json.get_error_line())
-
 func populate_grid() -> void: # 根据加载的数据和布局要求生成物品网格
 	# Clear existing children
 	for child in grid_container.get_children():
@@ -130,18 +111,18 @@ func populate_grid() -> void: # 根据加载的数据和布局要求生成物品
 			var empty_slot = _create_empty_slot(item_width)
 			grid_container.add_child(empty_slot)
 
-func _create_item_button(item: Item, size: float) -> Button: # 创建单个物品按钮
+func _create_item_button(item: Dictionary, size: float) -> Button: # 创建单个物品按钮
 	var btn = Button.new()
 	btn.custom_minimum_size = Vector2(size, size)
 	btn.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	btn.expand_icon = true
 	
-	if not item.icon_path.is_empty():
-		var texture = load(item.icon_path)
+	if item["icon"] is String:
+		var texture = load(item["icon"])
 		if texture:
 			btn.icon = texture
 		else:
-			btn.text = item.name.left(1)
+			btn.text = item["name"].left(1)
 	
 	GameTheme.apply_button_theme(btn)
 	btn.pressed.connect(func(): update_detail_view(item))
@@ -158,12 +139,12 @@ func _create_empty_slot(size: float) -> Panel: # 创建空槽位占位符
 	p.add_theme_stylebox_override("panel", style)
 	return p
 
-func update_detail_view(item: Item) -> void: # 更新右侧物品详情面板显示
-	detail_name.text = item.name
-	detail_desc.text = item.description
+func update_detail_view(item: Dictionary) -> void: # 更新右侧物品详情面板显示
+	detail_name.text = item["name"]
+	detail_desc.text = item["desc"]
 	
-	if not item.icon_path.is_empty():
-		var texture = load(item.icon_path)
+	if not item["icon"].is_empty():
+		var texture = load(item["icon"])
 		if texture:
 			detail_icon.texture = texture
 		else:
@@ -173,3 +154,15 @@ func clear_detail_view() -> void: # 清空物品详情面板
 	detail_name.text = ""
 	detail_desc.text = ""
 	detail_icon.texture = null
+
+func _get_current_item() -> Array: # 获取当前物品数据（如果需要）
+	var current_items: Array = []
+	var inventory_dict = GameManager.game_data.inventory_items
+	
+	for item_id in inventory_dict:
+		if ResourceManager.item_data.has(item_id):
+			var info = ResourceManager.item_data[item_id]
+			current_items.append(info)
+			
+	return current_items
+	

@@ -5,14 +5,15 @@
         "zone": "Whispering Woods",
         "coordinates": [123.45, 67.89]
     },
-    "inventory": [
-        {
-            "item_id": 1,
-            "count": 2
-        },
-        {
-            "item_id": 3,
-            "count": 1
-        }
-    ],
+    "game_data": {
+        "inventory": [
+            {
+                "item_id": 1,
+                "count": 2
+            },
+            {
+                "item_id": 3,
+                "count": 1
+            }
+    ]}
 }

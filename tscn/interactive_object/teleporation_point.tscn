@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dg7cxogxewi2h"]
 
-[ext_resource type="Script" uid="uid://cku4nylmhiubf" path="res://script/interactive_object/teleporation_point.gd" id="1_00n4a"]
+[ext_resource type="Script" uid="uid://cku4nylmhiubf" path="res://script/object/interactive_object/teleporation_point.gd" id="1_00n4a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rn7qb"]
 size = Vector2(108, 145)

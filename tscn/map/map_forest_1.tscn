@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://d1oya0jpdujpy"]
 
-[ext_resource type="Script" uid="uid://5no1lnh4087q" path="res://script/map.gd" id="1_080db"]
+[ext_resource type="Script" uid="uid://5no1lnh4087q" path="res://script/object/map.gd" id="1_080db"]
 [ext_resource type="TileSet" uid="uid://dokgbjg34xvaq" path="res://resources/tile_set/tile_set_forest.tres" id="2_p5j4k"]
-[ext_resource type="Script" uid="uid://cku4nylmhiubf" path="res://script/interactive_object/teleporation_point.gd" id="3_p5j4k"]
+[ext_resource type="Script" uid="uid://cku4nylmhiubf" path="res://script/object/interactive_object/teleporation_point.gd" id="3_p5j4k"]
 [ext_resource type="PackedScene" uid="uid://ddtih67qh3uow" path="res://tscn/interactive_object/notice_board.tscn" id="3_x7c7m"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_my6js"]

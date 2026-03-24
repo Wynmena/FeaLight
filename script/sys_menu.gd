@@ -92,6 +92,9 @@ func toggle() -> void:
 	else:
 		open()
 
+func switch_to_tab(tab_name: String) -> void:
+	_on_tab_selected(tab_name)
+
 func _on_tab_selected(tab_name: String) -> void:
 	current_tab_name = tab_name
 	_update_tab_styles()

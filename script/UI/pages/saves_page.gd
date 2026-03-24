@@ -1,6 +1,6 @@
 class_name SavesPage extends Control
 
-const SAVE_SLOT_SCENE = preload("res://tscn/UI/pages/save_slot.tscn")
+const SAVE_SLOT_SCENE = preload("res://tscn/UI/components/save_slot.tscn")
 const TEST_DATA_PATH = "res://art/data/test_data/saves_test.json"
 
 @onready var save_list_container: VBoxContainer = %SaveList
