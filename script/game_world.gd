@@ -5,7 +5,7 @@ signal _anim_back_signal
 
 
 @onready var map_root: Node2D = $MapRoot
-@onready var ui_effect_layer: UIEffectLayer = $UIEffectLayer
+# @onready var ui_effect_layer: UIEffectLayer = $UIEffectLayer
 
 @onready var tele_timer: Timer = $TeleTimer
 
@@ -24,8 +24,8 @@ func _ready() -> void:
 	
 	# 初始化游戏状态
 	change_map_without_black_screen(test_map_name)
-
-	GameManager.init_game()
+	
+	SignalBus.request_change_map.connect(change_map)
 
 
 func change_map(map_name: String, tele_id: int = 0) -> void:
@@ -37,7 +37,7 @@ func change_map(map_name: String, tele_id: int = 0) -> void:
 		return
 		
 		
-	ui_effect_layer.play_black_screen(_anim_back_signal)
+	ScreenManager.play_black_screen(_anim_back_signal)
 	#清除现有地图
 	current_map = null
 	#移开玩家防止穿帮
@@ -54,8 +54,8 @@ func change_map(map_name: String, tele_id: int = 0) -> void:
 	if tele == null:
 		tele = current_map.get_default_teleporation()
 	
-	if ui_effect_layer.is_playing("black_screen"):
-		await ui_effect_layer.anim_forward_finish
+	if ScreenManager.is_playing("black_screen"):
+		await ScreenManager.anim_forward_finish
 	
 	call_deferred("_finish_map_change", tele, map_name)
 

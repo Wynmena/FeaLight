@@ -2,19 +2,23 @@
 
 [ext_resource type="Script" uid="uid://dkpfdg5i0khys" path="res://script/object/interactive_object/notice_board.gd" id="1_f0nau"]
 [ext_resource type="Texture2D" uid="uid://ce6pmqncnhur8" path="res://art/img/object/notice_board.png" id="2_ssfrf"]
+[ext_resource type="Script" path="res://script/components/interaction_component.gd" id="3_icomp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jhxp2"]
 radius = 13.0
 
-[node name="NoticeBoard" type="Area2D" unique_id=1410132536]
-collision_layer = 4
+[node name="NoticeBoard" type="Node2D" unique_id=1410132536]
 script = ExtResource("1_f0nau")
+
+[node name="InteractionComponent" type="Area2D" parent="."]
+collision_layer = 4
+script = ExtResource("3_icomp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent" unique_id=1006084046]
+shape = SubResource("CircleShape2D_jhxp2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=804610931]
 texture = ExtResource("2_ssfrf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1006084046]
-shape = SubResource("CircleShape2D_jhxp2")
 
 [node name="EnterLabel" type="Label" parent="." unique_id=1031409250]
 anchors_preset = 7

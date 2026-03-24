@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbioq82lgjrdr"]
 
 [ext_resource type="Script" uid="uid://7jde2tqoqsmr" path="res://script/main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://d0p64hr25e4hu" path="res://tscn/UI/ui_effect_layer.tscn" id="2_u4t67"]
 
 [node name="Main" type="Node" unique_id=1802054651]
 script = ExtResource("1_main")
@@ -8,3 +9,6 @@ script = ExtResource("1_main")
 [node name="CurrentSceneContainer" type="Node" parent="." unique_id=1275458947]
 
 [node name="Menu" type="CanvasLayer" parent="." unique_id=1811102107]
+
+[node name="UIEffectLayer" parent="." instance=ExtResource("2_u4t67")]
+layer = 128

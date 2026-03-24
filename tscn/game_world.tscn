@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://mq47fphisufc" path="res://script/game_world.gd" id="1_eq12k"]
 [ext_resource type="PackedScene" uid="uid://c8thv8s26xvia" path="res://tscn/character/tmp_character.tscn" id="1_m3dfo"]
 [ext_resource type="PackedScene" uid="uid://c5etnua8l4xaf" path="res://tscn/interactive_object/my_camera.tscn" id="2_a3k1g"]
-[ext_resource type="PackedScene" uid="uid://d0p64hr25e4hu" path="res://tscn/UI/ui_effect_layer.tscn" id="4_u4t67"]
 
 [node name="GameWorld" type="Node2D" unique_id=238838565 node_paths=PackedStringArray("player")]
 script = ExtResource("1_eq12k")
@@ -23,6 +22,3 @@ target = NodePath("../CharacterBody2D")
 wait_time = 3.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=947745591]
-
-[node name="UIEffectLayer" parent="." unique_id=575939604 instance=ExtResource("4_u4t67")]
-layer = 100
