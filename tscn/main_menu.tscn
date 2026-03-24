@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bbav3f1ethoc6"]
+
+[ext_resource type="Script" uid="uid://j47mgufp0kq2" path="res://script/main_menu.gd" id="1_menu"]
+
+[node name="MainMenu" type="Control" unique_id=1013267252]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1281495141]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1240821831]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1878594876]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "FeaLight"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=241288005]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "开始游戏"
+
+[node name="LoadButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=691388116]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "读取进度"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1436761968]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "退出"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

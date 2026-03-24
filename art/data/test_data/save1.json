@@ -1,0 +1,19 @@
+{
+    "save_id": 1,
+    "save_time": "2026-03-19 16:45:28",
+    "position": {
+        "zone": "Whispering Woods",
+        "coordinates": [123.45, 67.89]
+    },
+    "game_data": {
+        "inventory": [
+            {
+                "item_id": 1,
+                "count": 2
+            },
+            {
+                "item_id": 3,
+                "count": 1
+            }
+    ]}
+}

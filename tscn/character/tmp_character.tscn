@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8thv8s26xvia"]
 
-[ext_resource type="Script" uid="uid://4iar0mdjjw1w" path="res://script/character/character_optate.gd" id="1_8eykx"]
+[ext_resource type="Script" uid="uid://4iar0mdjjw1w" path="res://script/object/character/character_optate.gd" id="1_8eykx"]
 [ext_resource type="Texture2D" uid="uid://dirk3px5ro4gw" path="res://art/img/character/tmp_player.png" id="1_rk1h2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1156k"]

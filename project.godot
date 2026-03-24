@@ -10,16 +10,20 @@ config_version=5
 
 [application]
 
-config/name="菲林游戏"
-run/main_scene="uid://dmaxp4ortk1j0"
+config/name="菲叶游戏/FeaLight"
+run/main_scene="uid://dbioq82lgjrdr"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/stretch_mode=0
 config/icon="res://icon.svg"
 
 [autoload]
 
+SignalBus="*res://script/Manager/signal_bus.gd"
 PathUtil="*uid://7uu0a6d1q3k8"
-Manager="*uid://cexva3fy4miuo"
+ResourceManager="*res://script/Manager/resource_manager.gd"
+ScreenManager="*res://script/Manager/screen_manager.gd"
+GameManager="*res://script/Manager/game_manager.gd"
+InputManager="*res://script/Manager/input_manager.gd"
 
 [display]
 

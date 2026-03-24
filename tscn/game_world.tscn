@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://dmaxp4ortk1j0"]
 
-[ext_resource type="Script" uid="uid://c4hr62d4idm8i" path="res://script/main_game.gd" id="1_eq12k"]
+[ext_resource type="Script" uid="uid://mq47fphisufc" path="res://script/game_world.gd" id="1_eq12k"]
 [ext_resource type="PackedScene" uid="uid://c8thv8s26xvia" path="res://tscn/character/tmp_character.tscn" id="1_m3dfo"]
 [ext_resource type="PackedScene" uid="uid://c5etnua8l4xaf" path="res://tscn/interactive_object/my_camera.tscn" id="2_a3k1g"]
-[ext_resource type="PackedScene" uid="uid://d0p64hr25e4hu" path="res://tscn/UI/ui_effect_layer.tscn" id="4_u4t67"]
 
-[node name="MainGame" type="Node2D" unique_id=238838565 node_paths=PackedStringArray("player")]
+[node name="GameWorld" type="Node2D" unique_id=238838565 node_paths=PackedStringArray("player")]
 script = ExtResource("1_eq12k")
 player = NodePath("CharacterBody2D")
 test_map_name = "map_forest_1"
@@ -23,17 +22,3 @@ target = NodePath("../CharacterBody2D")
 wait_time = 3.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=947745591]
-
-[node name="Button" type="Button" parent="UI" unique_id=1663518004]
-offset_left = 23.0
-offset_top = 25.0
-offset_right = 117.0
-offset_bottom = 69.0
-text = "系统设置"
-
-[node name="UIEffectLayer" parent="." unique_id=575939604 instance=ExtResource("4_u4t67")]
-layer = 100
-
-[node name="SystemEnum" type="CanvasLayer" parent="." unique_id=1533410874]
-
-[connection signal="pressed" from="UI/Button" to="." method="toggle_menu"]

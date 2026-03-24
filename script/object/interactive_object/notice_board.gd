@@ -1,7 +1,8 @@
-class_name NoticeBoard extends InteractiveObject
+class_name NoticeBoard extends Node2D
 
 
-@onready var Enter_lab: Label = $EnterLabel
+@onready var interaction_component: InteractionComponent = $InteractionComponent
+@onready var enter_lab: Label = $EnterLabel
 @onready var contect_lab: Label = $ContectLabel
 
 
@@ -14,20 +15,24 @@ var _player_is_here: bool = false
 
 
 func _ready() -> void:
-	Enter_lab.text = enter_text
+	if interaction_component:
+		interaction_component.interact_start.connect(_on_interaction_start)
+		interaction_component.interact_end.connect(_on_interaction_end)
+		
+	enter_lab.text = enter_text
 	contect_lab.text = contect
-	Enter_lab.hide()
+	enter_lab.hide()
 	contect_lab.hide()
 
 
-func _player_enter_reaction() -> void:
+func _on_interaction_start() -> void:
 	_player_is_here = true
-	contect_lab.show() if _just_show_contect else Enter_lab.show()
+	contect_lab.show() if _just_show_contect else enter_lab.show()
 
 
-func _player_exited_reaction() -> void:
+func _on_interaction_end() -> void:
 	_player_is_here = false
-	Enter_lab.hide()
+	enter_lab.hide()
 	contect_lab.hide()
 
 
@@ -36,5 +41,5 @@ func _unhandled_input(event: InputEvent) -> void:
 	 and event is InputEventKey and event.pressed:
 		var new_event = event as InputEventKey
 		if (new_event.keycode):
-			Enter_lab.hide()
+			enter_lab.hide()
 			contect_lab.show()

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8q6y3x2q501"]
 
-[ext_resource type="Script" uid="uid://cto5ngsfhwmaw" path="res://script/UI/pages/sys_menu.gd" id="1_page"]
+[ext_resource type="Script" uid="uid://cto5ngsfhwmaw" path="res://script/sys_menu.gd" id="1_page"]
 
 [node name="SysMenu" type="Control" unique_id=842799745]
 layout_mode = 3

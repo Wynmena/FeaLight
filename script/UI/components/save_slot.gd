@@ -1,7 +1,7 @@
 class_name SaveSlot extends PanelContainer
 
 signal save_requested(slot_id)
-signal load_requested(slot_id)
+signal load_requested(slot_path)
 
 var _save_data: Dictionary = {}
 var _slot_id: int = -1
@@ -12,6 +12,10 @@ var _slot_id: int = -1
 @onready var time_label: Label = %TimeLabel
 @onready var save_btn: Button = %SaveButton
 @onready var load_btn: Button = %LoadButton
+
+func _ready() -> void:
+	if GameManager:
+		load_requested.connect(GameManager._on_load_requested)
 
 func setup(data: Dictionary, id: int) -> void:
 	_save_data = data
@@ -39,7 +43,7 @@ func setup(data: Dictionary, id: int) -> void:
 		load_btn.disabled = false
 		
 	save_btn.pressed.connect(func(): save_requested.emit(_slot_id))
-	load_btn.pressed.connect(func(): load_requested.emit(_slot_id))
+	load_btn.pressed.connect(func(): load_requested.emit(_save_data["path"] if _save_data.has("path") else ""))
 
 	_apply_theme()
 

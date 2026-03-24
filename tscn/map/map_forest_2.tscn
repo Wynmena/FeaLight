@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://berf65jdf7oov"]
 
-[ext_resource type="Script" uid="uid://5no1lnh4087q" path="res://script/map.gd" id="1_hlx27"]
+[ext_resource type="Script" uid="uid://5no1lnh4087q" path="res://script/object/map.gd" id="1_hlx27"]
 [ext_resource type="TileSet" uid="uid://dokgbjg34xvaq" path="res://resources/tile_set/tile_set_forest.tres" id="2_hlx27"]
 [ext_resource type="PackedScene" uid="uid://dg7cxogxewi2h" path="res://tscn/interactive_object/teleporation_point.tscn" id="3_oqefn"]
 [ext_resource type="PackedScene" uid="uid://ddtih67qh3uow" path="res://tscn/interactive_object/notice_board.tscn" id="4_r4178"]
