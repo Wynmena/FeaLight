@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkpfdg5i0khys" path="res://script/object/interactive_object/notice_board.gd" id="1_f0nau"]
 [ext_resource type="Texture2D" uid="uid://ce6pmqncnhur8" path="res://art/img/object/notice_board.png" id="2_ssfrf"]
-[ext_resource type="Script" path="res://script/components/interaction_component.gd" id="3_icomp"]
+[ext_resource type="Script" uid="uid://c45eahqqs1hhp" path="res://script/components/interaction_component.gd" id="3_icomp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jhxp2"]
 radius = 13.0
@@ -10,7 +10,7 @@ radius = 13.0
 [node name="NoticeBoard" type="Node2D" unique_id=1410132536]
 script = ExtResource("1_f0nau")
 
-[node name="InteractionComponent" type="Area2D" parent="."]
+[node name="InteractionComponent" type="Area2D" parent="." unique_id=1421468490]
 collision_layer = 4
 script = ExtResource("3_icomp")
 

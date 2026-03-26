@@ -1,9 +1,15 @@
 class_name UIEffectLayer extends CanvasLayer
 
 
-signal anim_forward_finish
-signal anim_backward_finish
-signal anim_finish
+# 外部调用函数时，使用 enum 可避免 String 拼写错误导致的 bug
+enum AnimType{
+	BLACK_SCREEN,
+}
+
+var _anim_type_name: Dictionary[AnimType, String] = {
+	AnimType.BLACK_SCREEN : "black_screen",
+}
+
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
@@ -16,23 +22,24 @@ func has_animation(anim_name: String) -> bool:
 	return anim.has_animation(anim_name)
 
 
-func play_black_screen(back_signal: Signal) -> void:
-	_play_anim("black_screen", true, back_signal)
+func play(anim_type: AnimType) -> void:
+	_play_anim(_anim_type_name[anim_type], false)
 
+func play_backwards(anim_type: AnimType) -> void:
+	_play_anim(_anim_type_name[anim_type], true)
 
-func _play_anim(anim_name: String, play_backward: bool = false, back_signal:Signal = Signal()) -> void:
+func _play_anim(anim_name: String, is_backwards: bool) -> void:
 	if not has_animation(anim_name):
 		push_warning("try play unexited animation: ", anim_name)
 		return
-	anim.play(anim_name)
-	await anim.animation_finished
-	anim_forward_finish.emit()
-	if not play_backward:
-		return
-	if not back_signal == Signal():
-		print("back_signal is not null")
-		await back_signal
-	print("play backward")
-	anim.play_backwards(anim_name)
-	anim_backward_finish.emit()
-	anim_finish.emit()
+	
+	if is_backwards :
+		anim.play_backwards(anim_name)
+		await anim.animation_finished
+		SignalBus.ui_eff_anim_backward_finished.emit(anim_name)
+	else:
+		anim.play(anim_name)
+		await anim.animation_finished
+		SignalBus.ui_eff_anim_forward_finished.emit(anim_name)
+		
+	SignalBus.ui_eff_anim_finished.emit(anim_name)

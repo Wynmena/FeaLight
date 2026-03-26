@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dg7cxogxewi2h"]
 
 [ext_resource type="Script" uid="uid://cku4nylmhiubf" path="res://script/object/interactive_object/teleporation_point.gd" id="1_00n4a"]
-[ext_resource type="Script" path="res://script/components/interaction_component.gd" id="2_icomp"]
+[ext_resource type="Script" uid="uid://c45eahqqs1hhp" path="res://script/components/interaction_component.gd" id="2_icomp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rn7qb"]
 size = Vector2(108, 145)
@@ -9,7 +9,7 @@ size = Vector2(108, 145)
 [node name="TeleporationPoint" type="Node2D" unique_id=1134737637]
 script = ExtResource("1_00n4a")
 
-[node name="InteractionComponent" type="Area2D" parent="."]
+[node name="InteractionComponent" type="Area2D" parent="." unique_id=1466385808]
 collision_layer = 4
 script = ExtResource("2_icomp")
 

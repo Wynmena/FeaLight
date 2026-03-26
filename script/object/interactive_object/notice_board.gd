@@ -1,4 +1,4 @@
-class_name NoticeBoard extends Node2D
+class_name NoticeBoard extends BaseInteractiveObject
 
 
 @onready var interaction_component: InteractionComponent = $InteractionComponent

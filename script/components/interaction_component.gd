@@ -21,3 +21,14 @@ func _on_area_entered(node: Node2D) -> void:
 func _on_area_exited(node: Node2D) -> void:
 	if _is_target(node):
 		interact_end.emit()
+
+
+func close_collision() -> void:
+	set_deferred("monitoring", false)
+	set_deferred("monitorable", false)
+
+
+func open_collision() -> void:
+	set_deferred("monitoring", true)
+	set_deferred("monitorable", true)
+	

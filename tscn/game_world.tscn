@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mq47fphisufc" path="res://script/game_world.gd" id="1_eq12k"]
 [ext_resource type="PackedScene" uid="uid://c8thv8s26xvia" path="res://tscn/character/tmp_character.tscn" id="1_m3dfo"]
+[ext_resource type="Script" uid="uid://cj00p2gc74s4w" path="res://script/object/map_root.gd" id="2_1jipe"]
 [ext_resource type="PackedScene" uid="uid://c5etnua8l4xaf" path="res://tscn/interactive_object/my_camera.tscn" id="2_a3k1g"]
 
 [node name="GameWorld" type="Node2D" unique_id=238838565 node_paths=PackedStringArray("player")]
@@ -10,6 +11,7 @@ player = NodePath("CharacterBody2D")
 test_map_name = "map_forest_1"
 
 [node name="MapRoot" type="Node2D" parent="." unique_id=676929129]
+script = ExtResource("2_1jipe")
 
 [node name="CharacterBody2D" parent="." unique_id=119792308 instance=ExtResource("1_m3dfo")]
 position = Vector2(265, 294)
@@ -17,8 +19,5 @@ position = Vector2(265, 294)
 [node name="MyCamera" parent="." unique_id=169203709 node_paths=PackedStringArray("target") instance=ExtResource("2_a3k1g")]
 position = Vector2(265, 294)
 target = NodePath("../CharacterBody2D")
-
-[node name="TeleTimer" type="Timer" parent="." unique_id=1832407631]
-wait_time = 3.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=947745591]

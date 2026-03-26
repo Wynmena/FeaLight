@@ -10,5 +10,5 @@ script = ExtResource("1_main")
 
 [node name="Menu" type="CanvasLayer" parent="." unique_id=1811102107]
 
-[node name="UIEffectLayer" parent="." instance=ExtResource("2_u4t67")]
+[node name="UIEffectLayer" parent="." unique_id=1726932941 instance=ExtResource("2_u4t67")]
 layer = 128

@@ -29,9 +29,7 @@ func init_ui(sys_menu_node: Node, current_container: Node, effect_layer_node: UI
 	global_menu_layer = sys_menu_node
 	cur_container_node = current_container
 	ui_effect_layer = effect_layer_node
-
-	if ui_effect_layer:
-		ui_effect_layer.anim_forward_finish.connect(func(): anim_forward_finish.emit())
+	
 	
 	# 实例化并挂载主菜单
 	if main_menu_scene:
@@ -39,9 +37,14 @@ func init_ui(sys_menu_node: Node, current_container: Node, effect_layer_node: UI
 		global_menu_layer.add_child(main_menu_instance)
 
 
-func play_black_screen(back_signal: Signal) -> void:
+func play_ui_efct_anim(anim_type: UIEffectLayer.AnimType) -> void:
 	if ui_effect_layer:
-		ui_effect_layer.play_black_screen(back_signal)
+		ui_effect_layer.play(anim_type)
+
+
+func play_ui_efct_anim_backwards(anim_type: UIEffectLayer.AnimType) -> void:
+	if ui_effect_layer:
+		ui_effect_layer.play_backwards(anim_type)
 
 
 func is_playing(anim_name: String) -> bool:

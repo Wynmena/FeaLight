@@ -30,3 +30,9 @@ static func pascal_to_snake(pascal_string: String) -> String:
 			previous_char_is_lowercase = (current_char >= 'a' and current_char <= 'z')
 	
 	return snake_string
+
+
+static func snake_to_pascal(snake_string: String) -> String:
+	var pascal_string: String = ""
+	pascal_string = snake_string.capitalize().replace(" ","")
+	return pascal_string
